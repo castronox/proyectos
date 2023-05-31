@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "proyectos",
+			"path": "../proyectos"
+		},
+		{
+			"name": "proyectos-1",
+			"path": "../proyectos-1"
+		}
+	],
+	"settings": {}
+}

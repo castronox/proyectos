@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Proyecto amazon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        a {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: x-large;
+            display: flex;
+            color: black;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.797);
+        }
+
+        header {
+            background: rgb(52, 50, 96);
+            background: linear-gradient(22deg, rgba(52, 50, 96, 1) 0%, rgba(55, 55, 189, 1) 35%, rgba(4, 142, 201, 1) 62%, rgba(196, 222, 109, 1) 100%);
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2%;
+            border-radius: 25px;
+            box-shadow: 33px 13px 43px rgba(15, 57, 130, 0.632);
+        }
+
+        h1 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgba(255, 255, 255, 0.797);
+            font-size: 6vw;
+            padding: 3%;
+            text-shadow: 3px 3px 33px rgb(16, 220, 217);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        ul {
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li {
+            display: flex;
+            margin: 2.5%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            box-shadow: 13px 5px 13px rgba(15, 57, 130, 0.632);
+            background: rgb(52, 50, 96);
+            background: linear-gradient(22deg, rgba(52, 50, 96, 1) 0%, rgba(55, 55, 189, 1) 35%, rgba(4, 142, 201, 1) 62%, rgba(196, 222, 109, 1) 100%);
+            padding: 2% 2% 2% 2%;
+            transition: ease-in-out 0.4s;
+        }
+
+        li:hover {
+            box-shadow: -13px 5px 23px rgba(15, 57, 130, 0.436);
+            transition: ease-in-out 0.4s;
+        }
+
+        main {
+            margin-top: 4%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        main section {
+
+            background: rgb(52, 50, 96);
+            background: linear-gradient(22deg, rgba(52, 50, 96, 1) 0%, rgba(55, 55, 189, 1) 35%, rgba(4, 142, 201, 1) 62%, rgba(196, 222, 109, 1) 100%);
+            padding: 1%;
+            max-width: 550px;
+            margin: 1.2%;
+            border-radius: 25px;
+            box-shadow: 33px 13px 43px rgba(15, 57, 130, 0.632);
+
+        }
+
+        div {
+            display: flex;
+            margin: 2.1%;
+        }
+
+        form {
+            text-align: end;
+            margin: auto;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            max-width: 650px;
+        }
+
+        label {
+            padding: 5px;
+            text-align: center;
+            color: white;
+            width: 200px;
+        }
+
+        input {
+            margin-left: 10px;
+            border-radius: 15px;
+            padding: 5px;
+            text-align: center;
+            width: 120px;
+        }
+
+        select {
+            display: flex;
+            margin: auto;
+            border-radius: 15px;
+            text-align: center;
+            width: 300px;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        fieldset {
+            display: flex;
+            border-radius: 25px;
+            padding: 5px;
+        }
+
+        legend {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
+            margin: 2%;
+
+        }
+
+        button {
+            display: flex;
+            margin: 3% auto 2% auto;
+            padding: 10px;
+
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 2%;
+            margin: 4%;
+            border-radius: 25px;
+            width: 350px;
+            height: 650px;
+            color: white;
+
+        }
+
+        h2 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            font-size: xx-large;
+            color: rgb(86, 232, 140);
+            text-shadow: 3px 3px 3px rgb(6, 43, 17);
+        }
+
+        b {
+            font-size: xx-large;
+            color: rgb(161, 86, 232);
+            text-shadow: 3px 3px 3px rgb(58, 4, 57);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Calculadora de tasas</h1>
+    </header>
+    <main>
+        <section>
+            <fieldset>
+                <legend>&nbsp; Introduce el producto &nbsp;</legend>
+                <form action="">
+                    <div>
+                        <label for="precio_producto">Introduce el precio del producto: </label>
+                        <input type="number" name="p_producto" id="p_producto" min="0"
+                            placeholder="introduce precio mayorista">
+                    </div>
+
+                    <div>
+                        <label for="unidades_producto">Unidades:</label>
+                        <input type="number" name="u_producto" id="u_producto" min="1">
+                    </div>
+            </fieldset>
+            <fieldset>
+                <legend>Categoria</legend>
+                <select name="categoria" id="categoria">
+                    <option value="">Selecciona una opción</option>
+                    <option value="15.45">Otros</option>
+                    <option value="15.45">Mochilas y bolsos</option>
+                    <option value="condicional_8">Libros, Música, Vídeo, DvD y SoftWare</option>
+                    <option value="15.45">Suministros de industria, empresa y ciencia</option>
+                    <option value="15.45">Electrodomésticos compactos</option>
+                    <option value="15.45">Material educativo</option>
+                    <option value="15.45">Gafas y accesorios</option>
+                    <option value="15.45">Artículos y equipo de servicio para la restauración</option>
+                    <option value="15.45">Zapatos</option>
+                    <option value="15.45">Hogar y cocina</option>
+                    <option value="15.45">Jardín</option>
+                    <option value="15.45">Colchones</option>
+                    <option value="15.45">Oficina y papelería</option>
+                    <option value="15.45">Productos para mascotas</option>
+                    <option value="15.45">Deportes y aire libre</option>
+                    <option value="15.45">Juguetes y juegos</option>
+                    <option value="15.45">Videojuegos y accesorios para videojuegos (NO CONSOLA)</option>
+                    <option value="12.36">Fabricación de aditivos</option>
+                    <option value="12.36">Control y filtración de flujo</option>
+                    <option value="12.36">Transferencia de líquidos</option>
+                    <option value="12.36">Amazon handmade</option>
+                    <option value="12.36">Eléctrico industrial</option>
+                    <option value="12.36">Herramientas e instrumentos industriales</option>
+                    <option value="12.36">Manipulación de materiales</option>
+                    <option value="12.36">Instrumentos musicales y producción audiovisual</option>
+                    <option value="12.36">Suministros de energia renovable</option>
+                    <option value="7.21">Informática</option>
+                    <option value="7.21">Electrónica</option>
+                    <option value="7.21">Electrodomésticos de tamaño completo</option>
+                    <option value="7.21">Neumáticos</option>
+                    <option value="8.24">Accesorios de ciclismo</option>
+                    <option value="8.24">Videojuegos (CONSOLAS)</option>
+                    <option value="46.35">Accesorios para dispositivos amazon</option>
+                    <option value="condicional_1">Coche, Moto, Deportes de motor</option>
+                    <option value="condicional_2">Productos para bebe</option>
+                    <option value="condicional_2">Belleza, Salud y cuidado personal</option>
+                    <option value="condicional_7">Alimentación y bebidas</option>
+                    <option value="condicional_3">Accesorios electronicos de coche y moto</option>
+                    <option value="condicional_3">Accesorios de informática</option>
+                    <option value="condicional_3">Accesorios de electrónica</option>
+                    <option value="condicional_4">Mobiliario</option>
+                    <option value="condicional_5">Joyeria</option>
+                    <option value="condicional_6">Relojes</option>
+                </select>
+
+            </fieldset>
+            <fieldset>
+                <legend>Impuesto</legend>
+                <select name="impuesto" id="iva">
+                    <option value="">Seleccione impuesto</option>
+                    <option value="21">Normal (21%)</option>
+                    <option value="10">Reducido (10%)</option>
+                    <option value="4">Super Reducido (4%)</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Beneficio</legend>
+                <select name="beneficio" id="beneficio">
+                    <option value="">Selecciona % de beneficio</option>
+                    <option value="0.5">0.5%</option>
+                    <option value="1.5">1.5%</option>
+                    <option value="2.5">2.5%</option>
+                    <option value="3.5">3.5%</option>
+                    <option value="5">5%</option>
+                    <option value="10">10%</option>
+                    <option value="15">15%</option>
+                    <option value="20">20%</option>
+                    <option value="25">25%</option>
+                </select>
+            </fieldset>
+            <button onclick="calcular();event.preventDefault();">Calcular</button>
+
+            </form>
+
+
+        </section>
+        <section>
+            <p id="resultado"></p>
+        </section>
+    </main>
+    <footer></footer>
+    <script>
+        function calcular() {
+            var precio = parseFloat(document.getElementById('p_producto').value);
+            var unidades = parseInt(document.getElementById('u_producto').value);
+
+            var impuesto = parseFloat(document.getElementById('iva').value);
+            var beneficio = parseFloat(document.getElementById('beneficio').value);
+
+            var categoria = document.getElementById('categoria').value;
+
+            if (isNaN(precio) || isNaN(unidades) || isNaN(impuesto) || isNaN(beneficio)) {
+                return alert("RELLENA TODOS LOS CAMPOS, PORFAVOR.");
+            }
+
+            switch (categoria) {
+
+                case '15.45':
+                    var porcentaje = 15.45;
+
+                    var calculo = precio * unidades * porcentaje / 100;
+
+                    var calculo_1 = precio * unidades * impuesto / 100;
+
+                    var calculo_2 = precio * unidades * beneficio / 100;
+
+                    resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    break;
+
+                case '12.36':
+                    var porcentaje = 12.36;
+
+                    var calculo = precio * unidades * 12.36 / 100;
+
+                    var calculo_1 = precio * unidades * impuesto / 100;
+
+                    var calculo_2 = precio * unidades * beneficio / 100;
+
+                    resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    break;
+
+                case '7.21':
+                    var porcentaje = 7.21;
+
+                    var calculo = precio * unidades * porcentaje / 100;
+
+                    var calculo_1 = precio * unidades * impuesto / 100;
+
+                    var calculo_2 = precio * unidades * beneficio / 100;
+
+                    resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    break;
+
+                case '8.24':
+
+                    var porcentaje = 8.24;
+
+                    var calculo = precio * unidades * porcentaje / 100;
+
+                    var calculo_1 = precio * unidades * impuesto / 100;
+
+                    var calculo_2 = precio * unidades * beneficio / 100;
+
+                    resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    break;
+
+                case '46.35':
+
+                    var porcentaje = 46.35;
+
+                    var calculo = precio * unidades * porcentaje / 100;
+
+                    var calculo_1 = precio * unidades * impuesto / 100;
+
+                    var calculo_2 = precio * unidades * beneficio / 100;
+
+                    resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    break;
+
+                case 'condicional_1':
+
+
+                    if (precio >= 50) {
+
+                        var porcentaje = 9.27;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } else if (precio <= 50) {
+
+                        var porcentaje = 15.45;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    }
+                    break;
+
+                case 'condicional_2':
+
+
+                    if (precio >= 10) {
+
+                        var porcentaje = 15.45;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } else if (precio <= 10) {
+
+                        var porcentaje = 8.24;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    }
+                    break;
+
+                case 'condicional_3':
+
+
+                    if (precio >= 100) {
+
+                        var porcentaje = 8.24;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } else if (precio <= 100) {
+
+                        var porcentaje = 15.45;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } break;
+                case 'condicional_4':
+
+
+                    if (precio >= 200) {
+
+                        var porcentaje = 10.30;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } else if (precio <= 200) {
+
+                        var porcentaje = 15.45;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } break;
+                case 'condicional_5':
+
+
+                    if (precio >= 250) {
+
+                        var porcentaje = 5.15;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } else if (precio <= 250) {
+
+                        var porcentaje = 20.60;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } break;
+                case 'condicional_6':
+
+
+                    if (precio >= 250) {
+
+                        var porcentaje = 15.45;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } else if (precio <= 250) {
+
+                        var porcentaje = 5.15;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2 + 0.30;
+
+                    } break;
+                case 'condicional_7': {
+
+                    if (precio >= 10) {
+
+                        var porcentaje = 15.45;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2;
+
+                    } else if (precio <= 10) {
+
+                        var porcentaje = 8.24;
+
+                        var calculo = precio * unidades * porcentaje / 100;
+
+                        var calculo_1 = precio * unidades * impuesto / 100;
+
+                        var calculo_2 = precio * unidades * beneficio / 100;
+
+                        resultado = precio + calculo + calculo_1 + calculo_2;
+
+                    }
+                    break;
+
+                }
+                case 'condicional_8': {
+
+                    var porcentaje = 15.45;
+
+                    var calculo = precio * unidades * porcentaje / 100;
+
+                    var calculo_1 = precio * unidades * impuesto / 100;
+
+                    var calculo_2 = precio * unidades * beneficio / 100;
+
+                    resultado = precio + calculo + calculo_1 + calculo_2;
+
+                    break;
+                }
+
+                default:
+                    resultado = 0;
+                    break;
+            }
+
+            document.getElementById('resultado').innerHTML = "PVD (Precio de venta al distribuidor) <br/><b> " + precio + " €.</b> <br /><br />Beneficio seleccionado<br/><b> " + beneficio +
+                " % </b><br /><br />Impuesto aplicado<br/><b> " + impuesto + " %  de IVA.</b> <br /><br />Unidades<br/><b> " + unidades + "</b> <br /><br />Porcentaje de comisión de categoría aplicada<br/><br/><b> " + porcentaje + " %</b><br/><br/><br/><h2>PVP Final<br/>" + resultado.toFixed(2) + " €.<br/><br/>Beneficio:<br/> +" + calculo_2.toFixed(2) + "€</h2>";
+        }
+    </script>
+</body>
+
+</html>
